@@ -17,6 +17,7 @@ public class App {
                 .select(studentId, studentName)
                 .from(studentTable, studentTable)
                 .where(studentId.eq(2).and(studentId.eq(3.2)).or(studentName.in("alvin","jack")).and(studentId.in(1,2,3)))
+                .orderBy(studentId.asc())
                 .toSql();
         System.out.println(sql);
     }

@@ -1,11 +1,14 @@
 package com.capslock.jsql;
 
 import com.capslock.jsql.express.Express;
+import com.capslock.jsql.express.OrderExpress;
 import com.capslock.jsql.express.literal.LiteralExpression;
 import com.capslock.jsql.express.operation.Operation;
 import com.capslock.jsql.express.operator.Operator;
 import com.capslock.jsql.express.operator.Operators;
+import com.capslock.jsql.express.operator.Order;
 import com.capslock.jsql.express.query.FromExpress;
+import com.capslock.jsql.express.query.OrderByExpress;
 import com.capslock.jsql.express.query.SelectExpress;
 import com.capslock.jsql.express.query.WhereExpress;
 import com.capslock.jsql.type.Visitor;
@@ -71,6 +74,21 @@ public class SqlBuilder implements Visitor {
     public void visit(final WhereExpress whereExpress) {
         append(" WHERE ");
         whereExpress.getConditionExpress().accept(this);
+    }
+
+    @Override
+    public void visit(final OrderExpress orderExpress) {
+        append(" ORDER BY ");
+        final Order order = orderExpress.getOrder();
+        orderExpress.getExpress().accept(this);
+        if (order == Order.desc) {
+            append(" DESC ");
+        }
+    }
+
+    @Override
+    public void visit(final OrderByExpress orderByExpress) {
+
     }
 
     public String build() {

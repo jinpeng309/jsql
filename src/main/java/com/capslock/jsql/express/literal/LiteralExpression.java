@@ -3,7 +3,9 @@ package com.capslock.jsql.express.literal;
 import com.capslock.jsql.express.BooleanExpress;
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.ExpressionFactory;
+import com.capslock.jsql.express.OrderExpress;
 import com.capslock.jsql.express.operator.Operators;
+import com.capslock.jsql.express.operator.Order;
 import com.capslock.jsql.type.Visitor;
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
@@ -31,6 +33,14 @@ public abstract class LiteralExpression<T extends Comparable> implements Express
 
     public void accept(Visitor visitor) {
         visitor.visit(this);
+    }
+
+    public OrderExpress asc() {
+        return new OrderExpress(this, Order.asc);
+    }
+
+    public OrderExpress desc() {
+        return new OrderExpress(this, Order.desc);
     }
 
     public BooleanExpress eq(final Express<?> right) {

@@ -2,6 +2,7 @@ package com.capslock.jsql.express.query;
 
 import com.capslock.jsql.SqlBuilder;
 import com.capslock.jsql.express.Express;
+import com.capslock.jsql.express.OrderExpress;
 import com.capslock.jsql.type.Visitor;
 
 /**
@@ -23,4 +24,10 @@ public class WhereExpress extends Query implements Express {
     public Express<?> getConditionExpress() {
         return conditionExpress;
     }
+
+    public OrderByExpress orderBy(final OrderExpress orderExpress) {
+        orderExpress.accept(sqlBuilder);
+        return new OrderByExpress(sqlBuilder);
+    }
+
 }
