@@ -5,6 +5,9 @@ import com.capslock.jsql.express.literal.LiteralExpression;
 import com.capslock.jsql.express.operation.Operation;
 import com.capslock.jsql.express.operator.Operator;
 import com.capslock.jsql.express.operator.Operators;
+import com.capslock.jsql.express.query.FromExpress;
+import com.capslock.jsql.express.query.SelectExpress;
+import com.capslock.jsql.express.query.WhereExpress;
 import com.capslock.jsql.type.Visitor;
 
 /**

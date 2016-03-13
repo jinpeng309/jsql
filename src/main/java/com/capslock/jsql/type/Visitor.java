@@ -1,8 +1,8 @@
 package com.capslock.jsql.type;
 
-import com.capslock.jsql.FromExpress;
-import com.capslock.jsql.SelectExpress;
-import com.capslock.jsql.WhereExpress;
+import com.capslock.jsql.express.query.FromExpress;
+import com.capslock.jsql.express.query.SelectExpress;
+import com.capslock.jsql.express.query.WhereExpress;
 import com.capslock.jsql.express.literal.LiteralExpression;
 import com.capslock.jsql.express.operation.Operation;
 

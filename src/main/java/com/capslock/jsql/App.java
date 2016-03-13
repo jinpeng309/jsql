@@ -1,6 +1,7 @@
 package com.capslock.jsql;
 
 import com.capslock.jsql.express.literal.StringLiteralExpress;
+import com.capslock.jsql.express.query.Query;
 
 /**
  * Created by capslock.
