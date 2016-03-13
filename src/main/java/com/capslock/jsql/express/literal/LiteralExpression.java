@@ -5,11 +5,14 @@ import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.ExpressionFactory;
 import com.capslock.jsql.express.operator.Operators;
 import com.capslock.jsql.type.Visitor;
+import com.google.common.base.Function;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.stream.Collectors;
+import java.util.List;
 
 /**
  * Created by capslock.
@@ -67,11 +70,20 @@ public abstract class LiteralExpression<T extends Comparable> implements Express
     }
 
     public <T extends Number> BooleanExpress in(final T... right) {
-        return in(Arrays.stream(right).map(Object::toString).collect(Collectors.toList()));
+        final List<String> numberList = new ArrayList<>();
+        for (final T value : right) {
+            numberList.add(value.toString());
+        }
+        return in(numberList);
     }
 
     public BooleanExpress in(final String... right) {
-        return in(Arrays.stream(right).map(str -> "'"+str+"'").collect(Collectors.toList()));
+        return in(Lists.transform(ImmutableList.copyOf(right), new Function<String, String>() {
+            @Override
+            public String apply(final String str) {
+                return "'" + str + "'";
+            }
+        }));
     }
 
     private BooleanExpress in(final Collection<String> right) {

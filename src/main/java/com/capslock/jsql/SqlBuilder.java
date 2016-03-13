@@ -1,5 +1,6 @@
 package com.capslock.jsql;
 
+import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.literal.LiteralExpression;
 import com.capslock.jsql.express.operation.Operation;
 import com.capslock.jsql.express.operator.Operator;
@@ -43,10 +44,10 @@ public class SqlBuilder implements Visitor {
     public void visit(final SelectExpress selectExpress) {
         append("SELECT ");
 
-        selectExpress.getColumns().forEach(express -> {
-            express.accept(this);
+        for (final Express columnExpress : selectExpress.getColumns()) {
+            columnExpress.accept(this);
             append(" , ");
-        });
+        }
 
         deleteLastN(3);
     }
@@ -54,10 +55,12 @@ public class SqlBuilder implements Visitor {
     @Override
     public void visit(final FromExpress fromExpress) {
         append(" FROM ");
-        fromExpress.getFromTableExpressList().forEach(express -> {
-            express.accept(this);
+
+        for (final Express tabaleExpress : fromExpress.getFromTableExpressList()) {
+            tabaleExpress.accept(this);
             append(" , ");
-        });
+        }
+
         deleteLastN(2);
     }
 

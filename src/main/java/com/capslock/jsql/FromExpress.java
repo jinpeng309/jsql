@@ -15,7 +15,7 @@ public class FromExpress extends Query implements Express {
 
     public FromExpress(final SqlBuilder sqlBuilder, final Express<?> table) {
         super(sqlBuilder);
-        this.tableExpressList = ImmutableList.of(table);
+        this.tableExpressList = ImmutableList.<Express<?>>of(table);
     }
 
     public FromExpress(final SqlBuilder sqlBuilder, final Express<?>... tables) {
