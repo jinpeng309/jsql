@@ -1,8 +1,9 @@
 package com.capslock.jsql.express.query;
 
-import com.capslock.jsql.SqlBuilder;
-import com.capslock.jsql.express.EmptyQuery;
+import com.capslock.jsql.type.SqlBuilder;
 import com.capslock.jsql.express.Express;
+import com.capslock.jsql.express.query.insert.InsertIntoExpress;
+import com.capslock.jsql.express.query.select.SelectExpress;
 
 /**
  * Created by capslock.

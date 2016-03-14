@@ -1,5 +1,6 @@
-package com.capslock.jsql.express;
+package com.capslock.jsql.express.query.order;
 
+import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.operator.Order;
 import com.capslock.jsql.type.Visitor;
 

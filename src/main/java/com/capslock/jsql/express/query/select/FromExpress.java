@@ -1,9 +1,11 @@
-package com.capslock.jsql.express.query;
+package com.capslock.jsql.express.query.select;
 
 import com.capslock.jsql.express.Express;
-import com.capslock.jsql.express.Predicate;
-import com.capslock.jsql.express.PredicateOperation;
+import com.capslock.jsql.express.booleanExpress.Predicate;
+import com.capslock.jsql.express.booleanExpress.PredicateOperation;
 import com.capslock.jsql.express.operator.Operators;
+import com.capslock.jsql.express.query.Query;
+import com.capslock.jsql.express.query.SqlContext;
 import com.capslock.jsql.type.Visitor;
 import com.google.common.collect.ImmutableList;
 

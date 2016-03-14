@@ -1,5 +1,6 @@
 package com.capslock.jsql.express;
 
+import com.capslock.jsql.express.booleanExpress.BooleanOperationExpress;
 import com.capslock.jsql.express.literal.StringLiteralExpress;
 import com.capslock.jsql.express.operator.Operator;
 import com.google.common.base.Joiner;

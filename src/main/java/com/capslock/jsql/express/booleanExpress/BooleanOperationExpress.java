@@ -1,5 +1,6 @@
-package com.capslock.jsql.express;
+package com.capslock.jsql.express.booleanExpress;
 
+import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.operation.Operation;
 import com.capslock.jsql.express.operator.Operator;
 import com.capslock.jsql.type.Visitor;

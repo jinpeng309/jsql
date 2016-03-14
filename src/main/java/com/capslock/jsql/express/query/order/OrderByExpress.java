@@ -1,7 +1,9 @@
-package com.capslock.jsql.express.query;
+package com.capslock.jsql.express.query.order;
 
 import com.capslock.jsql.express.Express;
-import com.capslock.jsql.express.OrderExpress;
+import com.capslock.jsql.express.query.select.LimitExpress;
+import com.capslock.jsql.express.query.Query;
+import com.capslock.jsql.express.query.SqlContext;
 import com.capslock.jsql.type.Visitor;
 
 /**

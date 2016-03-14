@@ -1,7 +1,6 @@
-package com.capslock.jsql.express;
+package com.capslock.jsql.express.query;
 
-import com.capslock.jsql.SqlBuilder;
-import com.capslock.jsql.express.query.SqlContext;
+import com.capslock.jsql.type.SqlBuilder;
 import com.capslock.jsql.type.Visitor;
 
 /**

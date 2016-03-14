@@ -1,5 +1,7 @@
-package com.capslock.jsql.express;
+package com.capslock.jsql.express.booleanExpress;
 
+import com.capslock.jsql.express.Express;
+import com.capslock.jsql.express.ExpressionFactory;
 import com.capslock.jsql.express.operator.Operators;
 
 /**

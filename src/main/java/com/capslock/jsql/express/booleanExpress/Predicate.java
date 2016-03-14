@@ -1,4 +1,6 @@
-package com.capslock.jsql.express;
+package com.capslock.jsql.express.booleanExpress;
+
+import com.capslock.jsql.express.Express;
 
 /**
  * Created by capslock.
