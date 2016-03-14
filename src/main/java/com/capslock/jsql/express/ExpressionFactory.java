@@ -1,7 +1,7 @@
 package com.capslock.jsql.express;
 
 import com.capslock.jsql.express.booleanExpress.BooleanOperationExpress;
-import com.capslock.jsql.express.literal.StringLiteralExpress;
+import com.capslock.jsql.express.literal.StringLiteral;
 import com.capslock.jsql.express.operator.Operator;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
@@ -16,8 +16,8 @@ public class ExpressionFactory {
         return new BooleanOperationExpress(operator, ImmutableList.copyOf(args));
     }
 
-    public static StringLiteralExpress stringLiteralExpressWithSeparator(final Collection<String> args, final String separator) {
-        return StringLiteralExpress.createStringLiteralExpressWithoutQuote("( " + Joiner.on(" " + separator + " ").join(args) + " )");
+    public static StringLiteral stringLiteralExpressWithSeparator(final Collection<String> args, final String separator) {
+        return StringLiteral.create("( " + Joiner.on(" " + separator + " ").join(args) + " )");
     }
 
 }

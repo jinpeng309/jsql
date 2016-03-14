@@ -1,6 +1,6 @@
 package com.capslock.jsql;
 
-import com.capslock.jsql.express.literal.StringLiteralExpress;
+import com.capslock.jsql.express.literal.StringLiteral;
 
 import static com.capslock.jsql.express.query.Query.insertInto;
 import static com.capslock.jsql.express.query.Query.select;
@@ -10,12 +10,12 @@ import static com.capslock.jsql.express.query.Query.select;
  */
 public class App {
     private static final class Student {
-        public static final StringLiteralExpress tableName =
-                StringLiteralExpress.createStringLiteralExpressWithQuote("student");
-        public static final StringLiteralExpress studentId =
-                StringLiteralExpress.createStringLiteralExpressWithQuote("id");
-        public static final StringLiteralExpress studentName =
-                StringLiteralExpress.createStringLiteralExpressWithQuote("name");
+        public static final StringLiteral tableName =
+                StringLiteral.createWithQuote("student");
+        public static final StringLiteral studentId =
+                StringLiteral.createWithQuote("id");
+        public static final StringLiteral studentName =
+                StringLiteral.createWithQuote("name");
     }
 
     public static void main(String[] args) {
@@ -30,8 +30,8 @@ public class App {
 
         final String insertSql = insertInto(Student.tableName)
                 .columns(Student.studentId, Student.studentName)
-                .values(StringLiteralExpress.createStringLiteralExpressWithoutQuote("1"),
-                        StringLiteralExpress.createStringLiteralExpressWithoutQuote("tom"))
+                .values(StringLiteral.create(1),
+                        StringLiteral.createWithApostrophe("tom"))
                 .toSql();
         System.out.println(insertSql);
     }

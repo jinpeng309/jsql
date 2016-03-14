@@ -3,7 +3,7 @@ package com.capslock.jsql.type;
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.query.order.OrderExpress;
 import com.capslock.jsql.express.literal.LiteralExpression;
-import com.capslock.jsql.express.literal.StringLiteralExpress;
+import com.capslock.jsql.express.literal.StringLiteral;
 import com.capslock.jsql.express.operation.Operation;
 import com.capslock.jsql.express.operator.Operator;
 import com.capslock.jsql.express.operator.Operators;
@@ -16,7 +16,6 @@ import com.capslock.jsql.express.query.order.OrderByExpress;
 import com.capslock.jsql.express.query.select.SelectExpress;
 import com.capslock.jsql.express.query.insert.ValuesExpress;
 import com.capslock.jsql.express.query.select.WhereExpress;
-import com.capslock.jsql.type.Visitor;
 
 import java.util.List;
 
@@ -120,11 +119,11 @@ public class SqlBuilder implements Visitor {
 
     @Override
     public void visit(final ColumnsExpress columnsExpress) {
-        final List<StringLiteralExpress> columns = columnsExpress.getColumns();
+        final List<StringLiteral> columns = columnsExpress.getColumns();
 
         if (!columns.isEmpty()) {
             append(" (");
-            for (final StringLiteralExpress column : columns) {
+            for (final StringLiteral column : columns) {
                 column.accept(this);
                 append(" , ");
             }

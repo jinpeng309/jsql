@@ -1,7 +1,7 @@
 package com.capslock.jsql.express.query.insert;
 
 import com.capslock.jsql.express.Express;
-import com.capslock.jsql.express.literal.StringLiteralExpress;
+import com.capslock.jsql.express.literal.StringLiteral;
 import com.capslock.jsql.express.query.Query;
 import com.capslock.jsql.express.query.SqlContext;
 import com.capslock.jsql.type.Visitor;
@@ -22,7 +22,7 @@ public class InsertIntoExpress extends Query implements Express {
         return tableExpress;
     }
 
-    public ColumnsExpress columns(final StringLiteralExpress... columns) {
+    public ColumnsExpress columns(final StringLiteral... columns) {
         return new ColumnsExpress(this, ImmutableList.copyOf(columns));
     }
 
