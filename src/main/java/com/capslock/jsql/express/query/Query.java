@@ -8,7 +8,7 @@ import com.capslock.jsql.express.query.select.SelectExpress;
 /**
  * Created by capslock.
  */
-public abstract class Query implements SqlContext, Express {
+public abstract class Query implements SqlContext {
     protected final SqlContext sqlContext;
 
     public Query(final SqlContext sqlContext) {
