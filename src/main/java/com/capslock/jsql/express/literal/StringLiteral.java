@@ -8,7 +8,7 @@ public class StringLiteral extends LiteralExpression<String> {
         super(value);
     }
 
-    public static StringLiteral createWithQuote(final String value) {
+    public static StringLiteral createWithGraveAccent(final String value) {
         return new StringLiteral("`" + value + "`");
     }
 

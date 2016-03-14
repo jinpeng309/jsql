@@ -11,11 +11,11 @@ import static com.capslock.jsql.express.query.Query.select;
 public class App {
     private static final class Student {
         public static final StringLiteral tableName =
-                StringLiteral.createWithQuote("student");
+                StringLiteral.createWithGraveAccent("student");
         public static final StringLiteral studentId =
-                StringLiteral.createWithQuote("id");
+                StringLiteral.createWithGraveAccent("id");
         public static final StringLiteral studentName =
-                StringLiteral.createWithQuote("name");
+                StringLiteral.createWithGraveAccent("name");
     }
 
     public static void main(String[] args) {
