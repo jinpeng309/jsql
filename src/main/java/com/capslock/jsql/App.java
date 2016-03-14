@@ -24,9 +24,16 @@ public class App {
 
     public static void main(String[] args) {
 
+        /**
+         * SELECT `id` , `name`
+           FROM `student`
+           WHERE `id` = 2 OR `name` IN ( 'alvin' , 'jack' )
+           ORDER BY `id` DESC
+           LIMIT 10
+         */
         final String selectQuery = select(Student.studentId, Student.studentName)
                 .from(Student.tableName)
-                .where(Student.studentId.eq(2).not().or(Student.studentName.in("alvin", "jack")))
+                .where(Student.studentId.eq(2).or(Student.studentName.in("alvin", "jack")))
                 .orderBy(Student.studentId.desc())
                 .limit(10)
                 .toSql();
@@ -44,7 +51,7 @@ public class App {
                 .columns(Student.studentId, Student.studentName)
                 .select(select(Student.studentId, Student.studentName)
                         .from(Student.tableName)
-                        .where(Student.studentId.eq(2).not().or(Student.studentName.in("alvin", "jack")))
+                        .where(Student.studentId.eq(2).or(Student.studentName.in("alvin", "jack")))
                         .orderBy(Student.studentId.desc())
                         .limit(10).toSql())
                 .toSql();
