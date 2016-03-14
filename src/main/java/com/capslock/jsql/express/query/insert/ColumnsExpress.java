@@ -20,8 +20,12 @@ public class ColumnsExpress extends Query implements Express {
         this.columns = columns;
     }
 
-    public ValuesExpress values(final Express... values){
-        return new ValuesExpress(this, ImmutableList.copyOf(values));
+    public ValuesExpress values(final Express... values) {
+        return new ValuesExpress(this, ImmutableList.<List<Express>>of(ImmutableList.copyOf(values)));
+    }
+
+    public ValuesExpress values(final List<Express>... valuesList) {
+        return new ValuesExpress(this, ImmutableList.copyOf(valuesList));
     }
 
     @Override

@@ -1,6 +1,10 @@
 package com.capslock.jsql;
 
+import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.literal.StringLiteral;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.capslock.jsql.express.query.Query.insertInto;
 import static com.capslock.jsql.express.query.Query.select;
@@ -28,10 +32,17 @@ public class App {
                 .toSql();
         System.out.println(selectQuery);
 
+        final List<Express> value1 = new ArrayList<>();
+        value1.add(StringLiteral.create(1));
+        value1.add(StringLiteral.createWithApostrophe("jack"));
+
+        final List<Express> value2 = new ArrayList<>();
+        value2.add(StringLiteral.create(2));
+        value2.add(StringLiteral.createWithApostrophe("alvin"));
+
         final String insertSql = insertInto(Student.tableName)
                 .columns(Student.studentId, Student.studentName)
-                .values(StringLiteral.create(1),
-                        StringLiteral.createWithApostrophe("tom"))
+                .values(value1, value2)
                 .toSql();
         System.out.println(insertSql);
     }

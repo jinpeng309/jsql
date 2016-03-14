@@ -11,14 +11,14 @@ import java.util.List;
  * Created by alvin.
  */
 public class ValuesExpress extends Query implements Express {
-    private final List<Express> values;
+    private final List<List<Express>> values;
 
-    public ValuesExpress(final SqlContext sqlContext, final List<Express> values) {
+    public ValuesExpress(final SqlContext sqlContext, final List<List<Express>> values) {
         super(sqlContext);
         this.values = values;
     }
 
-    public List<Express> getValues() {
+    public List<List<Express>> getValues() {
         return values;
     }
 

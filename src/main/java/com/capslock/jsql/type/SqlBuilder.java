@@ -1,7 +1,6 @@
 package com.capslock.jsql.type;
 
 import com.capslock.jsql.express.Express;
-import com.capslock.jsql.express.query.order.OrderExpress;
 import com.capslock.jsql.express.literal.LiteralExpression;
 import com.capslock.jsql.express.literal.StringLiteral;
 import com.capslock.jsql.express.operation.Operation;
@@ -9,13 +8,15 @@ import com.capslock.jsql.express.operator.Operator;
 import com.capslock.jsql.express.operator.Operators;
 import com.capslock.jsql.express.operator.Order;
 import com.capslock.jsql.express.query.insert.ColumnsExpress;
-import com.capslock.jsql.express.query.select.FromExpress;
 import com.capslock.jsql.express.query.insert.InsertIntoExpress;
-import com.capslock.jsql.express.query.select.LimitExpress;
-import com.capslock.jsql.express.query.order.OrderByExpress;
-import com.capslock.jsql.express.query.select.SelectExpress;
 import com.capslock.jsql.express.query.insert.ValuesExpress;
+import com.capslock.jsql.express.query.order.OrderByExpress;
+import com.capslock.jsql.express.query.order.OrderExpress;
+import com.capslock.jsql.express.query.select.FromExpress;
+import com.capslock.jsql.express.query.select.LimitExpress;
+import com.capslock.jsql.express.query.select.SelectExpress;
 import com.capslock.jsql.express.query.select.WhereExpress;
+import com.google.common.collect.ImmutableList;
 
 import java.util.List;
 
@@ -135,17 +136,26 @@ public class SqlBuilder implements Visitor {
 
     @Override
     public void visit(final ValuesExpress valuesExpress) {
-        final List<Express> valueList = valuesExpress.getValues();
+        final List<List<Express>> valuesList = valuesExpress.getValues();
         append(" VALUES ");
-        append("(");
-        if (!valueList.isEmpty()) {
-            for (final Express value : valuesExpress.getValues()) {
-                value.accept(this);
+
+        if (!valuesList.isEmpty()) {
+            for (final List<Express> values : valuesList) {
+                if (!values.isEmpty()) {
+                    append("(");
+                    for (final Express value : values) {
+                        value.accept(this);
+                        append(" , ");
+                    }
+                    deleteLastN(3);
+                    append(")");
+                }
                 append(" , ");
             }
             deleteLastN(3);
+
         }
-        append(")");
+
     }
 
     public String build() {
