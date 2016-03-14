@@ -1,23 +1,23 @@
 package com.capslock.jsql.express.query;
 
-import com.capslock.jsql.SqlBuilder;
 import com.capslock.jsql.express.Express;
+import com.capslock.jsql.type.SqlContext;
 import com.capslock.jsql.type.Visitor;
 import com.google.common.collect.ImmutableList;
 
 /**
  * Created by capslock.
  */
-public class SelectExpress extends Query implements Express {
+public class SelectExpress extends Query {
     private final ImmutableList<Express<?>> columns;
 
-    public SelectExpress(final SqlBuilder sqlBuilder, final Express<?>... columns) {
-        super(sqlBuilder);
+    public SelectExpress(final SqlContext sqlContext, final Express<?>... columns) {
+        super(sqlContext);
         this.columns = ImmutableList.copyOf(columns);
     }
 
-    public SelectExpress(final SqlBuilder sqlBuilder, final Express<?> column) {
-        super(sqlBuilder);
+    public SelectExpress(final SqlContext sqlContext, final Express<?> column) {
+        super(sqlContext);
         this.columns = ImmutableList.<Express<?>>of(column);
     }
 
@@ -31,8 +31,7 @@ public class SelectExpress extends Query implements Express {
     }
 
     public FromExpress from(final Express<?>... tableExpress) {
-        final FromExpress fromExpress = new FromExpress(sqlBuilder, tableExpress);
-        fromExpress.accept(sqlBuilder);
+        final FromExpress fromExpress = new FromExpress(this, tableExpress);
         return fromExpress;
     }
 }

@@ -13,7 +13,8 @@ public enum Operators implements Operator {
     OR(Boolean.class, "OR"),
     AND(Boolean.class, "AND"),
     IN(Boolean.class, "IN"),
-    NOT(Boolean.class, "NOT");
+    NOT(Boolean.class, "NOT"),
+    EXISTS(Boolean.class, "EXISTS");
 
     private final Class<?> type;
     private final String operand;

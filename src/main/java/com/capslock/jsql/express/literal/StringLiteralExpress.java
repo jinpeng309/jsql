@@ -8,11 +8,11 @@ public class StringLiteralExpress extends LiteralExpression<String> {
         super(value);
     }
 
-    public static StringLiteralExpress getStringLiteralExpressWithWrap(final String value) {
+    public static StringLiteralExpress createStringLiteralExpressWithQuote(final String value) {
         return new StringLiteralExpress(wrap(value));
     }
 
-    public static StringLiteralExpress getStringLiteralExpressWithoutWrap(final String value) {
+    public static StringLiteralExpress createStringLiteralExpressWithoutQuote(final String value) {
         return new StringLiteralExpress(value);
     }
 

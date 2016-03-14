@@ -48,7 +48,7 @@ public abstract class LiteralExpression<T extends Comparable> implements Express
     }
 
     public BooleanExpress eq(final String right) {
-        return eq(StringLiteralExpress.getStringLiteralExpressWithoutWrap(right));
+        return eq(StringLiteralExpress.createStringLiteralExpressWithoutQuote(right));
     }
 
     public <T extends Number> BooleanExpress eq(final T right) {
@@ -60,7 +60,7 @@ public abstract class LiteralExpression<T extends Comparable> implements Express
     }
 
     public BooleanExpress le(final String right) {
-        return le(StringLiteralExpress.getStringLiteralExpressWithoutWrap(right));
+        return le(StringLiteralExpress.createStringLiteralExpressWithoutQuote(right));
     }
 
     public <T extends Number> BooleanExpress le(final T right) {
@@ -72,7 +72,7 @@ public abstract class LiteralExpression<T extends Comparable> implements Express
     }
 
     public BooleanExpress gt(final String right) {
-        return gt(StringLiteralExpress.getStringLiteralExpressWithoutWrap(right));
+        return gt(StringLiteralExpress.createStringLiteralExpressWithoutQuote(right));
     }
 
     public <T extends Number> BooleanExpress gt(final T right) {

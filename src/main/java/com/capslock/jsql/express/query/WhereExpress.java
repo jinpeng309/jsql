@@ -1,8 +1,8 @@
 package com.capslock.jsql.express.query;
 
-import com.capslock.jsql.SqlBuilder;
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.OrderExpress;
+import com.capslock.jsql.type.SqlContext;
 import com.capslock.jsql.type.Visitor;
 
 /**
@@ -11,8 +11,8 @@ import com.capslock.jsql.type.Visitor;
 public class WhereExpress extends Query implements Express {
     private final Express<?> conditionExpress;
 
-    public WhereExpress(final SqlBuilder visitor, final Express<?> condition) {
-        super(visitor);
+    public WhereExpress(final SqlContext sqlContext, final Express<?> condition) {
+        super(sqlContext);
         this.conditionExpress = condition;
     }
 
@@ -26,8 +26,7 @@ public class WhereExpress extends Query implements Express {
     }
 
     public OrderByExpress orderBy(final OrderExpress orderExpress) {
-        orderExpress.accept(sqlBuilder);
-        return new OrderByExpress(sqlBuilder);
+        return new OrderByExpress(this);
     }
 
 }

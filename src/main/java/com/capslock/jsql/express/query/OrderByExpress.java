@@ -1,7 +1,7 @@
 package com.capslock.jsql.express.query;
 
-import com.capslock.jsql.SqlBuilder;
 import com.capslock.jsql.express.Express;
+import com.capslock.jsql.type.SqlContext;
 import com.capslock.jsql.type.Visitor;
 
 /**
@@ -9,8 +9,8 @@ import com.capslock.jsql.type.Visitor;
  */
 public class OrderByExpress extends Query implements Express {
 
-    public OrderByExpress(final SqlBuilder visitor) {
-        super(visitor);
+    public OrderByExpress(final SqlContext sqlContext) {
+        super(sqlContext);
     }
 
     @Override

@@ -16,7 +16,7 @@ public class ExpressionFactory {
     }
 
     public static StringLiteralExpress stringLiteralExpressWithSeparator(final Collection<String> args, final String separator) {
-        return StringLiteralExpress.getStringLiteralExpressWithoutWrap("( " + Joiner.on(" " + separator + " ").join(args) + " )");
+        return StringLiteralExpress.createStringLiteralExpressWithoutQuote("( " + Joiner.on(" " + separator + " ").join(args) + " )");
     }
 
 }
