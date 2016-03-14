@@ -1,5 +1,6 @@
 package com.capslock.jsql.type;
 
+import com.capslock.jsql.express.query.insert.SelectValuesExpress;
 import com.capslock.jsql.express.query.order.OrderExpress;
 import com.capslock.jsql.express.literal.LiteralExpression;
 import com.capslock.jsql.express.operation.Operation;
@@ -37,4 +38,6 @@ public interface Visitor {
     void visit(final ColumnsExpress columnsExpress);
 
     void visit(final ValuesExpress valuesExpress);
+
+    void visit(final SelectValuesExpress selectValuesExpress);
 }

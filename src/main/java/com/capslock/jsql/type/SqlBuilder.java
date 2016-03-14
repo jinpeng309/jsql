@@ -9,6 +9,7 @@ import com.capslock.jsql.express.operator.Operators;
 import com.capslock.jsql.express.operator.Order;
 import com.capslock.jsql.express.query.insert.ColumnsExpress;
 import com.capslock.jsql.express.query.insert.InsertIntoExpress;
+import com.capslock.jsql.express.query.insert.SelectValuesExpress;
 import com.capslock.jsql.express.query.insert.ValuesExpress;
 import com.capslock.jsql.express.query.order.OrderByExpress;
 import com.capslock.jsql.express.query.order.OrderExpress;
@@ -16,7 +17,6 @@ import com.capslock.jsql.express.query.select.FromExpress;
 import com.capslock.jsql.express.query.select.LimitExpress;
 import com.capslock.jsql.express.query.select.SelectExpress;
 import com.capslock.jsql.express.query.select.WhereExpress;
-import com.google.common.collect.ImmutableList;
 
 import java.util.List;
 
@@ -32,6 +32,14 @@ public class SqlBuilder implements Visitor {
 
     private void append(final long value) {
         sqlBuilder.append(value);
+    }
+
+    private void flush(){
+        sqlBuilder.append("\n");
+    }
+
+    private void appendSpace(){
+        append(" ");
     }
 
     private void deleteLast() {
@@ -50,13 +58,13 @@ public class SqlBuilder implements Visitor {
         final Operator operator = operation.getOperator();
         if (Operators.biOperandSet.contains(operator)) {
             operation.getArg(0).accept(this);
-            append(" ");
+            appendSpace();
             append(operator.getOperand());
-            append(" ");
+            appendSpace();
             operation.getArg(1).accept(this);
         } else {
             append(operator.getOperand());
-            append(" ");
+            appendSpace();
             operation.getArg(0).accept(this);
         }
     }
@@ -71,11 +79,13 @@ public class SqlBuilder implements Visitor {
         }
 
         deleteLastN(3);
+        appendSpace();
     }
 
     @Override
     public void visit(final FromExpress fromExpress) {
-        append(" FROM ");
+        flush();
+        append("FROM ");
 
         for (final Express tabaleExpress : fromExpress.getFromTableExpressList()) {
             tabaleExpress.accept(this);
@@ -83,22 +93,27 @@ public class SqlBuilder implements Visitor {
         }
 
         deleteLastN(3);
+        appendSpace();
     }
 
     @Override
     public void visit(final WhereExpress whereExpress) {
-        append(" WHERE ");
+        flush();
+        append("WHERE ");
         whereExpress.getConditionExpress().accept(this);
+        appendSpace();
     }
 
     @Override
     public void visit(final OrderExpress orderExpress) {
-        append(" ORDER BY ");
+        flush();
+        append("ORDER BY ");
         final Order order = orderExpress.getOrder();
         orderExpress.getExpress().accept(this);
         if (order == Order.desc) {
             append(" DESC");
         }
+        appendSpace();
     }
 
     @Override
@@ -108,14 +123,17 @@ public class SqlBuilder implements Visitor {
 
     @Override
     public void visit(final LimitExpress limitExpress) {
-        append(" LIMIT ");
+        flush();
+        append("LIMIT ");
         append(limitExpress.getLimit());
+        appendSpace();
     }
 
     @Override
     public void visit(final InsertIntoExpress insertExpress) {
         append("INSERT INTO ");
         insertExpress.getTableExpress().accept(this);
+        appendSpace();
     }
 
     @Override
@@ -131,6 +149,7 @@ public class SqlBuilder implements Visitor {
             deleteLastN(3);
             append(")");
         }
+        appendSpace();
 
     }
 
@@ -153,9 +172,15 @@ public class SqlBuilder implements Visitor {
                 append(" , ");
             }
             deleteLastN(3);
-
+            appendSpace();
         }
 
+    }
+
+    @Override
+    public void visit(final SelectValuesExpress selectValuesExpress) {
+        flush();
+        selectValuesExpress.getSelectClause().accept(this);
     }
 
     public String build() {

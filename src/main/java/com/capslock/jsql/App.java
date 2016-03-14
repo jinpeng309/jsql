@@ -42,8 +42,12 @@ public class App {
 
         final String insertSql = insertInto(Student.tableName)
                 .columns(Student.studentId, Student.studentName)
-                .values(value1, value2)
+                .select(select(Student.studentId, Student.studentName)
+                        .from(Student.tableName)
+                        .where(Student.studentId.eq(2).not().or(Student.studentName.in("alvin", "jack")))
+                        .orderBy(Student.studentId.desc())
+                        .limit(10).toSql())
                 .toSql();
-        System.out.println(insertSql);
+//        System.out.println(insertSql);
     }
 }
