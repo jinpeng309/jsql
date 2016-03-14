@@ -48,6 +48,6 @@ public class App {
                         .orderBy(Student.studentId.desc())
                         .limit(10).toSql())
                 .toSql();
-//        System.out.println(insertSql);
+        System.out.println(insertSql);
     }
 }

@@ -1,4 +1,4 @@
-package com.capslock.jsql.express.query.order;
+package com.capslock.jsql.express.query.select.order;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.query.select.LimitExpress;

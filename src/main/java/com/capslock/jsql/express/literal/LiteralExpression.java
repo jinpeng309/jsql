@@ -3,7 +3,7 @@ package com.capslock.jsql.express.literal;
 import com.capslock.jsql.express.booleanExpress.BooleanExpress;
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.ExpressionFactory;
-import com.capslock.jsql.express.query.order.OrderExpress;
+import com.capslock.jsql.express.query.select.order.OrderExpress;
 import com.capslock.jsql.express.operator.Operators;
 import com.capslock.jsql.express.operator.Order;
 import com.capslock.jsql.type.Visitor;

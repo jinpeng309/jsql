@@ -3,8 +3,8 @@ package com.capslock.jsql.express.query.select;
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.query.Query;
 import com.capslock.jsql.express.query.SqlContext;
-import com.capslock.jsql.express.query.order.OrderByExpress;
-import com.capslock.jsql.express.query.order.OrderExpress;
+import com.capslock.jsql.express.query.select.order.OrderByExpress;
+import com.capslock.jsql.express.query.select.order.OrderExpress;
 import com.capslock.jsql.type.Visitor;
 
 /**

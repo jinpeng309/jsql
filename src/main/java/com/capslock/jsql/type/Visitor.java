@@ -1,14 +1,14 @@
 package com.capslock.jsql.type;
 
 import com.capslock.jsql.express.query.insert.SelectValuesExpress;
-import com.capslock.jsql.express.query.order.OrderExpress;
+import com.capslock.jsql.express.query.select.order.OrderExpress;
 import com.capslock.jsql.express.literal.LiteralExpression;
 import com.capslock.jsql.express.operation.Operation;
 import com.capslock.jsql.express.query.insert.ColumnsExpress;
 import com.capslock.jsql.express.query.select.FromExpress;
 import com.capslock.jsql.express.query.insert.InsertIntoExpress;
 import com.capslock.jsql.express.query.select.LimitExpress;
-import com.capslock.jsql.express.query.order.OrderByExpress;
+import com.capslock.jsql.express.query.select.order.OrderByExpress;
 import com.capslock.jsql.express.query.select.SelectExpress;
 import com.capslock.jsql.express.query.insert.ValuesExpress;
 import com.capslock.jsql.express.query.select.WhereExpress;
