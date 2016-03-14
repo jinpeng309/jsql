@@ -10,12 +10,14 @@ import com.google.common.collect.ImmutableList;
 /**
  * Created by alvin.
  */
-public class InsertIntoExpress extends Query implements Express {
+public class InsertExpress extends Query implements Express {
     private final Express<?> tableExpress;
+    private final String name;
 
-    public InsertIntoExpress(final SqlContext sqlContext, final Express<?> tableExpress) {
+    public InsertExpress(final SqlContext sqlContext, final Express<?> tableExpress, final String name) {
         super(sqlContext);
         this.tableExpress = tableExpress;
+        this.name = name;
     }
 
     public Express<?> getTableExpress() {
@@ -29,5 +31,9 @@ public class InsertIntoExpress extends Query implements Express {
     @Override
     public void accept(final Visitor visitor) {
         visitor.visit(this);
+    }
+
+    public String getName() {
+        return name;
     }
 }

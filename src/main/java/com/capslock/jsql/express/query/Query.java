@@ -2,7 +2,7 @@ package com.capslock.jsql.express.query;
 
 import com.capslock.jsql.type.SqlBuilder;
 import com.capslock.jsql.express.Express;
-import com.capslock.jsql.express.query.insert.InsertIntoExpress;
+import com.capslock.jsql.express.query.insert.InsertExpress;
 import com.capslock.jsql.express.query.select.SelectExpress;
 
 /**
@@ -19,8 +19,12 @@ public abstract class Query implements SqlContext {
         return new SelectExpress(new EmptyQuery(), args);
     }
 
-    public static InsertIntoExpress insertInto(final Express<?> tableName) {
-        return new InsertIntoExpress(new EmptyQuery(), tableName);
+    public static InsertExpress insertInto(final Express<?> tableName) {
+        return new InsertExpress(new EmptyQuery(), tableName, "INSERT INTO");
+    }
+
+    public static InsertExpress insertIgnoreInto(final Express<?> tableName) {
+        return new InsertExpress(new EmptyQuery(), tableName, "INSERT IGNORE INTO");
     }
 
     @Override

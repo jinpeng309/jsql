@@ -6,7 +6,7 @@ import com.capslock.jsql.express.literal.LiteralExpression;
 import com.capslock.jsql.express.operation.Operation;
 import com.capslock.jsql.express.query.insert.ColumnsExpress;
 import com.capslock.jsql.express.query.select.FromExpress;
-import com.capslock.jsql.express.query.insert.InsertIntoExpress;
+import com.capslock.jsql.express.query.insert.InsertExpress;
 import com.capslock.jsql.express.query.select.LimitExpress;
 import com.capslock.jsql.express.query.select.order.OrderByExpress;
 import com.capslock.jsql.express.query.select.SelectExpress;
@@ -33,7 +33,7 @@ public interface Visitor {
 
     void visit(final LimitExpress limitExpress);
 
-    void visit(final InsertIntoExpress insertExpress);
+    void visit(final InsertExpress insertExpress);
 
     void visit(final ColumnsExpress columnsExpress);
 

@@ -8,7 +8,7 @@ import com.capslock.jsql.express.operator.Operator;
 import com.capslock.jsql.express.operator.Operators;
 import com.capslock.jsql.express.operator.Order;
 import com.capslock.jsql.express.query.insert.ColumnsExpress;
-import com.capslock.jsql.express.query.insert.InsertIntoExpress;
+import com.capslock.jsql.express.query.insert.InsertExpress;
 import com.capslock.jsql.express.query.insert.SelectValuesExpress;
 import com.capslock.jsql.express.query.insert.ValuesExpress;
 import com.capslock.jsql.express.query.select.order.OrderByExpress;
@@ -130,8 +130,8 @@ public class SqlBuilder implements Visitor {
     }
 
     @Override
-    public void visit(final InsertIntoExpress insertExpress) {
-        append("INSERT INTO ");
+    public void visit(final InsertExpress insertExpress) {
+        append(insertExpress.getName());
         insertExpress.getTableExpress().accept(this);
         appendSpace();
     }

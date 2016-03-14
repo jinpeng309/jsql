@@ -6,7 +6,7 @@ import com.capslock.jsql.express.literal.StringLiteral;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.capslock.jsql.express.query.Query.insertInto;
+import static com.capslock.jsql.express.query.Query.insertIgnoreInto;
 import static com.capslock.jsql.express.query.Query.select;
 
 /**
@@ -47,13 +47,9 @@ public class App {
         value2.add(StringLiteral.create(2));
         value2.add(StringLiteral.createWithApostrophe("alvin"));
 
-        final String insertSql = insertInto(Student.tableName)
+        final String insertSql = insertIgnoreInto(Student.tableName)
                 .columns(Student.studentId, Student.studentName)
-                .select(select(Student.studentId, Student.studentName)
-                        .from(Student.tableName)
-                        .where(Student.studentId.eq(2).or(Student.studentName.in("alvin", "jack")))
-                        .orderBy(Student.studentId.desc())
-                        .limit(10).toSql())
+                .values(value1, value2)
                 .toSql();
         System.out.println(insertSql);
     }
