@@ -24,6 +24,10 @@ public class SqlBuilder implements Visitor {
         sqlBuilder.append(sql);
     }
 
+    private void append(final int value) {
+        sqlBuilder.append(value);
+    }
+
     private void deleteLast() {
         deleteLastN(1);
     }
@@ -87,7 +91,7 @@ public class SqlBuilder implements Visitor {
         final Order order = orderExpress.getOrder();
         orderExpress.getExpress().accept(this);
         if (order == Order.desc) {
-            append(" DESC ");
+            append(" DESC");
         }
     }
 
@@ -98,7 +102,8 @@ public class SqlBuilder implements Visitor {
 
     @Override
     public void visit(final LimitExpress limitExpress) {
-
+        append(" LIMIT ");
+        append(limitExpress.getLimit());
     }
 
     public String build() {

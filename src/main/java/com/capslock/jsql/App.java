@@ -22,7 +22,8 @@ public class App {
         final String sql = select(Student.studentId, Student.studentName)
                 .from(Student.tableName)
                 .where(Student.studentId.eq(2).not().or(Student.studentName.in("alvin", "jack")))
-                .orderBy(Student.studentId.asc())
+                .orderBy(Student.studentId.desc())
+                .limit(10)
                 .toSql();
         System.out.println(sql);
     }
