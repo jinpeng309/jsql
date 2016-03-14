@@ -2,6 +2,7 @@ package com.capslock.jsql.express;
 
 import com.capslock.jsql.express.operation.OperationImpl;
 import com.capslock.jsql.express.operator.Operator;
+import com.capslock.jsql.express.operator.Operators;
 
 import java.util.List;
 
@@ -17,8 +18,7 @@ public class PredicateOperation extends OperationImpl<Boolean> implements Predic
 
     public Predicate not() {
         if (not == null) {
-            //// TODO: 2016/3/11 add actual code
-            not = this;
+            not = ExpressionFactory.booleanOperation(Operators.NOT, this);
         }
         return not;
     }

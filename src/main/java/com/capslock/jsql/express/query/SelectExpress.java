@@ -1,7 +1,6 @@
 package com.capslock.jsql.express.query;
 
 import com.capslock.jsql.express.Express;
-import com.capslock.jsql.type.SqlContext;
 import com.capslock.jsql.type.Visitor;
 import com.google.common.collect.ImmutableList;
 
@@ -31,7 +30,6 @@ public class SelectExpress extends Query {
     }
 
     public FromExpress from(final Express<?>... tableExpress) {
-        final FromExpress fromExpress = new FromExpress(this, tableExpress);
-        return fromExpress;
+        return new FromExpress(this, tableExpress);
     }
 }

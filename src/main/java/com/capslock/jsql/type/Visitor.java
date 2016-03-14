@@ -4,6 +4,7 @@ import com.capslock.jsql.express.OrderExpress;
 import com.capslock.jsql.express.literal.LiteralExpression;
 import com.capslock.jsql.express.operation.Operation;
 import com.capslock.jsql.express.query.FromExpress;
+import com.capslock.jsql.express.query.LimitExpress;
 import com.capslock.jsql.express.query.OrderByExpress;
 import com.capslock.jsql.express.query.SelectExpress;
 import com.capslock.jsql.express.query.WhereExpress;
@@ -25,4 +26,6 @@ public interface Visitor {
     void visit(final OrderExpress orderByExpress);
 
     void visit(final OrderByExpress orderByExpress);
+
+    void visit(final LimitExpress limitExpress);
 }

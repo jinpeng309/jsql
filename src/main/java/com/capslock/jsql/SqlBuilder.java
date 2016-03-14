@@ -8,6 +8,7 @@ import com.capslock.jsql.express.operator.Operator;
 import com.capslock.jsql.express.operator.Operators;
 import com.capslock.jsql.express.operator.Order;
 import com.capslock.jsql.express.query.FromExpress;
+import com.capslock.jsql.express.query.LimitExpress;
 import com.capslock.jsql.express.query.OrderByExpress;
 import com.capslock.jsql.express.query.SelectExpress;
 import com.capslock.jsql.express.query.WhereExpress;
@@ -93,6 +94,11 @@ public class SqlBuilder implements Visitor {
     @Override
     public void visit(final OrderByExpress orderByExpress) {
         orderByExpress.getOrderExpress().accept(this);
+    }
+
+    @Override
+    public void visit(final LimitExpress limitExpress) {
+
     }
 
     public String build() {

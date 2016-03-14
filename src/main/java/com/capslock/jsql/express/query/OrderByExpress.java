@@ -2,7 +2,6 @@ package com.capslock.jsql.express.query;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.OrderExpress;
-import com.capslock.jsql.type.SqlContext;
 import com.capslock.jsql.type.Visitor;
 
 /**
@@ -18,6 +17,10 @@ public class OrderByExpress extends Query implements Express {
 
     public OrderExpress getOrderExpress() {
         return orderExpress;
+    }
+
+    public LimitExpress limit(final int limit) {
+        return new LimitExpress(this, limit);
     }
 
     @Override

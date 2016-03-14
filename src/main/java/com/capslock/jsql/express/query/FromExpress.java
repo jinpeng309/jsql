@@ -4,7 +4,6 @@ import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.Predicate;
 import com.capslock.jsql.express.PredicateOperation;
 import com.capslock.jsql.express.operator.Operators;
-import com.capslock.jsql.type.SqlContext;
 import com.capslock.jsql.type.Visitor;
 import com.google.common.collect.ImmutableList;
 
@@ -27,14 +26,12 @@ public class FromExpress extends Query implements Express {
     }
 
     public WhereExpress where(final Predicate condition) {
-        final WhereExpress whereExpress = new WhereExpress(this, condition);
-        return whereExpress;
+        return new WhereExpress(this, condition);
     }
 
     public WhereExpress exists(final SelectExpress selectExpress) {
         final Predicate predicate = new PredicateOperation(Operators.EXISTS, ImmutableList.<Express<?>>of(selectExpress));
-        final WhereExpress whereExpress = new WhereExpress(this, predicate);
-        return whereExpress;
+        return new WhereExpress(this, predicate);
     }
 
     @Override
