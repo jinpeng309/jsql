@@ -19,7 +19,7 @@ public class OrderByExpress extends Query implements Express {
         return orderExpress;
     }
 
-    public LimitExpress limit(final int limit) {
+    public LimitExpress limit(final long limit) {
         return new LimitExpress(this, limit);
     }
 

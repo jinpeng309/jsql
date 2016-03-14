@@ -7,14 +7,14 @@ import com.capslock.jsql.type.Visitor;
  * Created by capslock.
  */
 public class LimitExpress extends Query implements Express {
-    private final int limit;
+    private final long limit;
 
-    public LimitExpress(final SqlContext sqlContext, final int limit) {
+    public LimitExpress(final SqlContext sqlContext, final long limit) {
         super(sqlContext);
         this.limit = limit;
     }
 
-    public int getLimit() {
+    public long getLimit() {
         return limit;
     }
 

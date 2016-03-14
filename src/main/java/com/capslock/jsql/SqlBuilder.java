@@ -24,7 +24,7 @@ public class SqlBuilder implements Visitor {
         sqlBuilder.append(sql);
     }
 
-    private void append(final int value) {
+    private void append(final long value) {
         sqlBuilder.append(value);
     }
 
