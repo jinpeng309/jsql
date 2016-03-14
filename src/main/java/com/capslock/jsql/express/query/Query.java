@@ -18,6 +18,10 @@ public abstract class Query implements SqlContext, Express {
         return new SelectExpress(new EmptyQuery(), args);
     }
 
+    public static InsertIntoExpress insertInto(final Express<?> tableName) {
+        return new InsertIntoExpress(new EmptyQuery(), tableName);
+    }
+
     @Override
     public void build(final SqlBuilder sqlBuilder) {
         sqlContext.build(sqlBuilder);
