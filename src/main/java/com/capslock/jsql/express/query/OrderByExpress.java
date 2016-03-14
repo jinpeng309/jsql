@@ -1,6 +1,7 @@
 package com.capslock.jsql.express.query;
 
 import com.capslock.jsql.express.Express;
+import com.capslock.jsql.express.OrderExpress;
 import com.capslock.jsql.type.SqlContext;
 import com.capslock.jsql.type.Visitor;
 
@@ -8,9 +9,15 @@ import com.capslock.jsql.type.Visitor;
  * Created by capslock.
  */
 public class OrderByExpress extends Query implements Express {
+    private final OrderExpress orderExpress;
 
-    public OrderByExpress(final SqlContext sqlContext) {
+    public OrderByExpress(final SqlContext sqlContext, OrderExpress orderExpress) {
         super(sqlContext);
+        this.orderExpress = orderExpress;
+    }
+
+    public OrderExpress getOrderExpress() {
+        return orderExpress;
     }
 
     @Override

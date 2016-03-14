@@ -92,7 +92,7 @@ public class SqlBuilder implements Visitor {
 
     @Override
     public void visit(final OrderByExpress orderByExpress) {
-
+        orderByExpress.getOrderExpress().accept(this);
     }
 
     public String build() {

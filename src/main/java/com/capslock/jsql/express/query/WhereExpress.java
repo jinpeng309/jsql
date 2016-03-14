@@ -26,7 +26,7 @@ public class WhereExpress extends Query implements Express {
     }
 
     public OrderByExpress orderBy(final OrderExpress orderExpress) {
-        return new OrderByExpress(this);
+        return new OrderByExpress(this, orderExpress);
     }
 
 }

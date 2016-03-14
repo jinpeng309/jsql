@@ -1,20 +1,28 @@
 package com.capslock.jsql;
 
 import com.capslock.jsql.express.literal.StringLiteralExpress;
-import com.capslock.jsql.express.query.Query;
+
+import static com.capslock.jsql.express.query.Query.select;
 
 /**
  * Created by capslock.
  */
 public class App {
+    private static final class Student {
+        public static final StringLiteralExpress tableName =
+                StringLiteralExpress.createStringLiteralExpressWithQuote("student");
+        public static final StringLiteralExpress studentId =
+                StringLiteralExpress.createStringLiteralExpressWithQuote("id");
+        public static final StringLiteralExpress studentName =
+                StringLiteralExpress.createStringLiteralExpressWithQuote("name");
+    }
+
     public static void main(String[] args) {
-        final StringLiteralExpress studentId = StringLiteralExpress.createStringLiteralExpressWithQuote("id");
-        final StringLiteralExpress studentName = StringLiteralExpress.createStringLiteralExpressWithQuote("name");
-        final StringLiteralExpress studentTable = StringLiteralExpress.createStringLiteralExpressWithQuote("student");
-        final String sql = Query.select(studentId, studentName)
-                .from(studentTable, studentTable)
-                .where(studentId.eq(2).not().and(studentId.eq(3.2)).or(studentName.in("alvin", "jack")).and(studentId.in(1, 2, 3)))
-                .orderBy(studentId.asc())
+
+        final String sql = select(Student.studentId, Student.studentName)
+                .from(Student.tableName)
+                .where(Student.studentId.eq(2).not().or(Student.studentName.in("alvin", "jack")))
+                .orderBy(Student.studentId.asc())
                 .toSql();
         System.out.println(sql);
     }
