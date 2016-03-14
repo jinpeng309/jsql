@@ -43,6 +43,10 @@ public class SqlBuilder implements Visitor {
             append(operator.getOperand());
             append(" ");
             operation.getArg(1).accept(this);
+        } else {
+            append(operator.getOperand());
+            append(" ");
+            operation.getArg(0).accept(this);
         }
     }
 

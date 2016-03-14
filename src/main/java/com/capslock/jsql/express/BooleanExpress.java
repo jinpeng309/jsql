@@ -15,8 +15,7 @@ public abstract class BooleanExpress implements Predicate {
 
     public BooleanExpress not() {
         if (not == null) {
-            //// TODO: 2016/3/11 add actual code
-            not = this;
+            not = ExpressionFactory.booleanOperation(Operators.NOT, this);
         }
         return not;
     }
@@ -25,7 +24,7 @@ public abstract class BooleanExpress implements Predicate {
         return ExpressionFactory.booleanOperation(Operators.AND, this, predicate);
     }
 
-    public BooleanExpress or(final Predicate predicate){
+    public BooleanExpress or(final Predicate predicate) {
         return ExpressionFactory.booleanOperation(Operators.OR, this, predicate);
     }
 }

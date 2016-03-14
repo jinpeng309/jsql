@@ -12,7 +12,8 @@ public enum Operators implements Operator {
     GT(Boolean.class, ">"),
     OR(Boolean.class, "OR"),
     AND(Boolean.class, "AND"),
-    IN(Boolean.class, "IN");
+    IN(Boolean.class, "IN"),
+    NOT(Boolean.class, "NOT");
 
     private final Class<?> type;
     private final String operand;
