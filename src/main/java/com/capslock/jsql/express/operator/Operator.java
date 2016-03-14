@@ -5,5 +5,6 @@ package com.capslock.jsql.express.operator;
  */
 public interface Operator {
     Class<?> getType();
+
     String getOperand();
 }

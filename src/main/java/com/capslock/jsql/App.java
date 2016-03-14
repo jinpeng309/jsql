@@ -26,10 +26,10 @@ public class App {
 
         /**
          * SELECT `id` , `name`
-           FROM `student`
-           WHERE `id` = 2 OR `name` IN ( 'alvin' , 'jack' )
-           ORDER BY `id` DESC
-           LIMIT 10
+         FROM `student`
+         WHERE `id` = 2 OR `name` IN ( 'alvin' , 'jack' )
+         ORDER BY `id` DESC
+         LIMIT 10
          */
         final String selectQuery = select(Student.studentId, Student.studentName)
                 .from(Student.tableName)

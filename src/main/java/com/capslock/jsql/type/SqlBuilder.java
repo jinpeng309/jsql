@@ -34,11 +34,11 @@ public class SqlBuilder implements Visitor {
         sqlBuilder.append(value);
     }
 
-    private void flush(){
+    private void flush() {
         sqlBuilder.append("\n");
     }
 
-    private void appendSpace(){
+    private void appendSpace() {
         append(" ");
     }
 
