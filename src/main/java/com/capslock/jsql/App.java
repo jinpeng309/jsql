@@ -54,7 +54,7 @@ public class App {
                 .toSql();
         System.out.println(insertSql);
 
-        final String deleteSql = delete(Student.tableName).where(Student.studentId.eq("2")).toSql();
+        final String deleteSql = delete(Student.tableName).where(Student.studentId.eq("2")).limit(10).toSql();
         System.out.println(deleteSql);
     }
 }

@@ -31,4 +31,8 @@ public class WhereExpress extends Query implements Express {
         return new OrderByExpress(this, orderExpress);
     }
 
+    public LimitExpress limit(final long limit){
+        return new LimitExpress(this, limit);
+    }
+
 }
