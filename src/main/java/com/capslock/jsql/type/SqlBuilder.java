@@ -7,6 +7,7 @@ import com.capslock.jsql.express.operation.Operation;
 import com.capslock.jsql.express.operator.Operator;
 import com.capslock.jsql.express.operator.Operators;
 import com.capslock.jsql.express.operator.Order;
+import com.capslock.jsql.express.query.delete.DeleteExpress;
 import com.capslock.jsql.express.query.insert.ColumnsExpress;
 import com.capslock.jsql.express.query.insert.InsertExpress;
 import com.capslock.jsql.express.query.insert.SelectValuesExpress;
@@ -177,10 +178,17 @@ public class SqlBuilder implements Visitor {
 
     }
 
+
     @Override
     public void visit(final SelectValuesExpress selectValuesExpress) {
         flush();
         selectValuesExpress.getSelectClause().accept(this);
+    }
+
+    @Override
+    public void visit(final DeleteExpress deleteExpress) {
+        flush();
+        append("DELETE ");
     }
 
     public String build() {

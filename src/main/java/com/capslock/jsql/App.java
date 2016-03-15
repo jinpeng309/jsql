@@ -6,6 +6,7 @@ import com.capslock.jsql.express.literal.StringLiteral;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.capslock.jsql.express.query.Query.delete;
 import static com.capslock.jsql.express.query.Query.insertIgnoreInto;
 import static com.capslock.jsql.express.query.Query.select;
 
@@ -52,5 +53,8 @@ public class App {
                 .values(value1, value2)
                 .toSql();
         System.out.println(insertSql);
+
+        final String deleteSql = delete(Student.tableName).where(Student.studentId.eq("2")).toSql();
+        System.out.println(deleteSql);
     }
 }
