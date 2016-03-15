@@ -8,7 +8,7 @@ import com.capslock.jsql.type.Visitor;
 import java.util.List;
 
 /**
- * Created by alvin.
+ * Created by capslock.
  */
 public class ValuesExpress extends Query implements Express {
     private final List<List<Express>> values;

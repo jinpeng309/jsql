@@ -8,7 +8,7 @@ import com.capslock.jsql.type.Visitor;
 import com.google.common.collect.ImmutableList;
 
 /**
- * Created by alvin.
+ * Created by capslock.
  */
 public class InsertExpress extends Query implements Express {
     private final Express<?> tableExpress;

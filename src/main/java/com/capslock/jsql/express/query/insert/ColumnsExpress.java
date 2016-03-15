@@ -10,7 +10,7 @@ import com.google.common.collect.ImmutableList;
 import java.util.List;
 
 /**
- * Created by alvin.
+ * Created by capslock.
  */
 public class ColumnsExpress extends Query implements Express {
     private final List<StringLiteral> columns;
