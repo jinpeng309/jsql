@@ -6,10 +6,7 @@ import com.capslock.jsql.express.literal.StringLiteral;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.capslock.jsql.express.query.Query.delete;
-import static com.capslock.jsql.express.query.Query.insertIgnoreInto;
-import static com.capslock.jsql.express.query.Query.select;
-import static com.capslock.jsql.express.query.Query.update;
+import static com.capslock.jsql.express.query.Query.*;
 
 /**
  * Created by capslock.
@@ -49,15 +46,34 @@ public class App {
         value2.add(StringLiteral.create(2));
         value2.add(StringLiteral.createWithApostrophe("alvin"));
 
-        final String insertSql = insertIgnoreInto(Student.tableName)
+
+        /**
+         * INSERT INTO`student`  (`id` , `name`)  VALUES (1 , 'jack') , (2 , 'alvin')
+         */
+        final String insertSql = insertInto(Student.tableName)
                 .columns(Student.studentId, Student.studentName)
                 .values(value1, value2)
                 .toSql();
         System.out.println(insertSql);
 
-        final String deleteSql = delete(Student.tableName).where(Student.studentId.eq("2")).limit(10).toSql();
+        /**
+         * DELETE
+         FROM `student`
+         WHERE `id` = 2
+         LIMIT 10
+         */
+        final String deleteSql = delete(Student.tableName)
+                .where(Student.studentId.eq("2"))
+                .limit(10).toSql();
         System.out.println(deleteSql);
 
+
+        /**
+         * UPDATE `student`
+         SET `name`='alvin' , `id`=1
+         WHERE `id` IN ( 1 , 2 , 3 )
+         LIMIT 10
+         */
         final String updateSql = update(Student.tableName)
                 .set(Student.studentName, "alvin")
                 .set(Student.studentId, 1)
