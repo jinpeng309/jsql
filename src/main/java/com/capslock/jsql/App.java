@@ -60,9 +60,8 @@ public class App {
 
         final String updateSql = update(Student.tableName)
                 .set(Student.studentName, "alvin")
-                .set(Student.studentId,"1")
-                .set(Student.studentId,"2")
-                .where(Student.studentId.in(1,2,3))
+                .set(Student.studentId, 1)
+                .where(Student.studentId.in(1, 2, 3))
                 .limit(10)
                 .toSql();
         System.out.println(updateSql);

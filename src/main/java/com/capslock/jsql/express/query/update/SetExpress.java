@@ -37,6 +37,10 @@ public class SetExpress extends Query {
         return new FollowSetExpress(this, column, StringLiteral.createWithApostrophe(value));
     }
 
+    public <T extends Number> FollowSetExpress set(final Express column, final T value){
+        return new FollowSetExpress(this, column, StringLiteral.create(value));
+    }
+
     @Override
     public void accept(final Visitor visitor) {
         visitor.visit(this);
