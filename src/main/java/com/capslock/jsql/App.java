@@ -9,6 +9,7 @@ import java.util.List;
 import static com.capslock.jsql.express.query.Query.delete;
 import static com.capslock.jsql.express.query.Query.insertIgnoreInto;
 import static com.capslock.jsql.express.query.Query.select;
+import static com.capslock.jsql.express.query.Query.update;
 
 /**
  * Created by capslock.
@@ -56,5 +57,14 @@ public class App {
 
         final String deleteSql = delete(Student.tableName).where(Student.studentId.eq("2")).limit(10).toSql();
         System.out.println(deleteSql);
+
+        final String updateSql = update(Student.tableName)
+                .set(Student.studentName, "alvin")
+                .set(Student.studentId,"1")
+                .set(Student.studentId,"2")
+                .where(Student.studentId.in(1,2,3))
+                .limit(10)
+                .toSql();
+        System.out.println(updateSql);
     }
 }

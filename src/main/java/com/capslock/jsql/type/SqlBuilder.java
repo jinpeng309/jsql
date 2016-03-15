@@ -12,12 +12,15 @@ import com.capslock.jsql.express.query.insert.ColumnsExpress;
 import com.capslock.jsql.express.query.insert.InsertExpress;
 import com.capslock.jsql.express.query.insert.SelectValuesExpress;
 import com.capslock.jsql.express.query.insert.ValuesExpress;
-import com.capslock.jsql.express.query.select.order.OrderByExpress;
-import com.capslock.jsql.express.query.select.order.OrderExpress;
 import com.capslock.jsql.express.query.select.FromExpress;
 import com.capslock.jsql.express.query.select.LimitExpress;
 import com.capslock.jsql.express.query.select.SelectExpress;
 import com.capslock.jsql.express.query.select.WhereExpress;
+import com.capslock.jsql.express.query.select.order.OrderByExpress;
+import com.capslock.jsql.express.query.select.order.OrderExpress;
+import com.capslock.jsql.express.query.update.FollowSetExpress;
+import com.capslock.jsql.express.query.update.SetExpress;
+import com.capslock.jsql.express.query.update.UpdateExpress;
 
 import java.util.List;
 
@@ -178,7 +181,6 @@ public class SqlBuilder implements Visitor {
 
     }
 
-
     @Override
     public void visit(final SelectValuesExpress selectValuesExpress) {
         flush();
@@ -188,7 +190,36 @@ public class SqlBuilder implements Visitor {
     @Override
     public void visit(final DeleteExpress deleteExpress) {
         flush();
-        append("DELETE ");
+        append("DELETE");
+        appendSpace();
+    }
+
+    @Override
+    public void visit(final UpdateExpress updateExpress) {
+        flush();
+        append("UPDATE ");
+        updateExpress.getTable().accept(this);
+        appendSpace();
+    }
+
+    @Override
+    public void visit(final SetExpress setExpress) {
+        flush();
+        append("SET ");
+        setExpress.getColumn().accept(this);
+        append("=");
+        setExpress.getValue().accept(this);
+        appendSpace();
+
+    }
+
+    @Override
+    public void visit(final FollowSetExpress followSetExpress) {
+        append(", ");
+        followSetExpress.getColumn().accept(this);
+        append("=");
+        followSetExpress.getValue().accept(this);
+        appendSpace();
     }
 
     public String build() {

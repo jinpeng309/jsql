@@ -13,6 +13,9 @@ import com.capslock.jsql.express.query.select.SelectExpress;
 import com.capslock.jsql.express.query.select.WhereExpress;
 import com.capslock.jsql.express.query.select.order.OrderByExpress;
 import com.capslock.jsql.express.query.select.order.OrderExpress;
+import com.capslock.jsql.express.query.update.FollowSetExpress;
+import com.capslock.jsql.express.query.update.SetExpress;
+import com.capslock.jsql.express.query.update.UpdateExpress;
 
 /**
  * Created by capslock.
@@ -43,4 +46,10 @@ public interface Visitor {
     void visit(final SelectValuesExpress selectValuesExpress);
 
     void visit(final DeleteExpress deleteExpress);
+
+    void visit(final UpdateExpress updateExpress);
+
+    void visit(final SetExpress setExpress);
+
+    void visit(final FollowSetExpress followSetExpress);
 }

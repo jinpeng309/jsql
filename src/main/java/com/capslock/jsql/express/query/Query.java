@@ -5,6 +5,7 @@ import com.capslock.jsql.express.query.delete.DeleteExpress;
 import com.capslock.jsql.express.query.insert.InsertExpress;
 import com.capslock.jsql.express.query.select.FromExpress;
 import com.capslock.jsql.express.query.select.SelectExpress;
+import com.capslock.jsql.express.query.update.UpdateExpress;
 import com.capslock.jsql.type.SqlBuilder;
 
 /**
@@ -31,6 +32,10 @@ public abstract class Query implements SqlContext {
 
     public static FromExpress delete(final Express<?> tableName) {
         return new FromExpress(new DeleteExpress(new EmptyQuery()), tableName);
+    }
+
+    public static UpdateExpress update(final Express<?> tableName){
+        return new UpdateExpress(new EmptyQuery(), tableName);
     }
 
     @Override
