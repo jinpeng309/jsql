@@ -25,6 +25,10 @@ public class UpdateExpress extends Query {
         return new SetExpress(this, column, StringLiteral.createWithApostrophe(value));
     }
 
+    public <N extends Number> SetExpress set(final Express column, final N value) {
+        return new SetExpress(this, column, StringLiteral.create(value.toString()));
+    }
+
     @Override
     public void accept(final Visitor visitor) {
         visitor.visit(this);

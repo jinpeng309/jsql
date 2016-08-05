@@ -4,6 +4,7 @@ import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.literal.Column;
 import com.capslock.jsql.express.literal.StringLiteral;
 import com.capslock.jsql.express.literal.Table;
+import com.google.common.collect.Sets;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +78,7 @@ public class App {
         final String updateSql = update(Student.tableName)
                 .set(Student.studentName, "alvin")
                 .set(Student.studentId, 1)
-                .where(Student.studentId.in(1, 2, 3))
+                .where(Student.studentId.in(Sets.newHashSet(1L, 2L, 3L)))
                 .limit(10)
                 .toSql();
         System.out.println(updateSql);
