@@ -7,6 +7,7 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 
 import java.util.Collection;
+import java.util.Set;
 
 /**
  * Created by capslock.
@@ -16,7 +17,11 @@ public class ExpressionFactory {
         return new BooleanOperationExpress(operator, ImmutableList.copyOf(args));
     }
 
-    public static <N> StringLiteral stringLiteralExpressWithSeparator(final Collection<N> args, final String separator) {
+    public static StringLiteral stringLiteralExpressWithSeparator(final Collection<String> args, final String separator) {
+        return StringLiteral.create("( " + Joiner.on(" " + separator + " ").join(args) + " )");
+    }
+
+    public static <N extends Set<? extends Number>> StringLiteral stringLiteralExpressWithSeparator(final N args, final String separator) {
         return StringLiteral.create("( " + Joiner.on(" " + separator + " ").join(args) + " )");
     }
 
