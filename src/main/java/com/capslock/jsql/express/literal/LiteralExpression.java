@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by capslock.
@@ -96,12 +95,7 @@ public abstract class LiteralExpression<T extends Comparable> implements Express
         }));
     }
 
-    private BooleanExpress in(final Collection<String> right) {
-        return ExpressionFactory.booleanOperation(Operators.IN, this,
-                ExpressionFactory.stringLiteralExpressWithSeparator(right, ","));
-    }
-
-    private <N extends Set<? extends Number>> BooleanExpress in(final N right) {
+    public BooleanExpress in(final Collection<?> right) {
         return ExpressionFactory.booleanOperation(Operators.IN, this,
                 ExpressionFactory.stringLiteralExpressWithSeparator(right, ","));
     }
