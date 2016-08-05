@@ -6,6 +6,8 @@ import com.capslock.jsql.express.booleanExpress.PredicateOperation;
 import com.capslock.jsql.express.operator.Operators;
 import com.capslock.jsql.express.query.Query;
 import com.capslock.jsql.express.query.SqlContext;
+import com.capslock.jsql.express.query.select.order.OrderByExpress;
+import com.capslock.jsql.express.query.select.order.OrderExpress;
 import com.capslock.jsql.type.Visitor;
 import com.google.common.collect.ImmutableList;
 
@@ -34,6 +36,14 @@ public class FromExpress extends Query implements Express {
     public WhereExpress exists(final SelectExpress selectExpress) {
         final Predicate predicate = new PredicateOperation(Operators.EXISTS, ImmutableList.<Express<?>>of(selectExpress));
         return new WhereExpress(this, predicate);
+    }
+
+    public OrderByExpress orderBy(final OrderExpress orderExpress) {
+        return new OrderByExpress(this, orderExpress);
+    }
+
+    public LimitExpress limit(final long limit) {
+        return new LimitExpress(this, limit);
     }
 
     @Override
