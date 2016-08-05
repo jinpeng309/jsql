@@ -1,24 +1,26 @@
 package com.capslock.jsql;
 
 import com.capslock.jsql.express.Express;
+import com.capslock.jsql.express.literal.Column;
 import com.capslock.jsql.express.literal.StringLiteral;
+import com.capslock.jsql.express.literal.Table;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.capslock.jsql.express.query.Query.*;
+import static com.capslock.jsql.express.query.Query.delete;
+import static com.capslock.jsql.express.query.Query.insertInto;
+import static com.capslock.jsql.express.query.Query.select;
+import static com.capslock.jsql.express.query.Query.update;
 
 /**
  * Created by capslock.
  */
 public class App {
     private static final class Student {
-        public static final StringLiteral tableName =
-                StringLiteral.createWithGraveAccent("student");
-        public static final StringLiteral studentId =
-                StringLiteral.createWithGraveAccent("id");
-        public static final StringLiteral studentName =
-                StringLiteral.createWithGraveAccent("name");
+        public static final Table tableName = new Table("student");
+        public static final Column studentId = new Column("id");
+        public static final Column studentName = new Column("name");
     }
 
     public static void main(String[] args) {
@@ -46,7 +48,6 @@ public class App {
         value2.add(StringLiteral.create(2));
         value2.add(StringLiteral.createWithApostrophe("alvin"));
 
-
         /**
          * INSERT INTO`student`  (`id` , `name`)  VALUES (1 , 'jack') , (2 , 'alvin')
          */
@@ -66,7 +67,6 @@ public class App {
                 .where(Student.studentId.eq("2"))
                 .limit(10).toSql();
         System.out.println(deleteSql);
-
 
         /**
          * UPDATE `student`

@@ -4,7 +4,7 @@ package com.capslock.jsql.express.literal;
  * Created by capslock.
  */
 public class StringLiteral extends LiteralExpression<String> {
-    private StringLiteral(final String value) {
+    protected StringLiteral(final String value) {
         super(value);
     }
 
