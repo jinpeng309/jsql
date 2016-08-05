@@ -26,6 +26,10 @@ public abstract class Query implements SqlContext {
         return new InsertExpress(new EmptyQuery(), tableName, "INSERT INTO");
     }
 
+    public static InsertExpress insertOrReplaceInto(final Express<?> tableName) {
+        return new InsertExpress(new EmptyQuery(), tableName, "INSERT OR REPLACE INTO");
+    }
+
     public static InsertExpress insertIgnoreInto(final Express<?> tableName) {
         return new InsertExpress(new EmptyQuery(), tableName, "INSERT IGNORE INTO");
     }
