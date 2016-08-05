@@ -16,7 +16,7 @@ public class ExpressionFactory {
         return new BooleanOperationExpress(operator, ImmutableList.copyOf(args));
     }
 
-    public static StringLiteral stringLiteralExpressWithSeparator(final Collection<String> args, final String separator) {
+    public static <N> StringLiteral stringLiteralExpressWithSeparator(final Collection<N> args, final String separator) {
         return StringLiteral.create("( " + Joiner.on(" " + separator + " ").join(args) + " )");
     }
 

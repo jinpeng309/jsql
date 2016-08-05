@@ -95,7 +95,7 @@ public abstract class LiteralExpression<T extends Comparable> implements Express
         }));
     }
 
-    private BooleanExpress in(final Collection<String> right) {
+    private <N> BooleanExpress in(final Collection<N> right) {
         return ExpressionFactory.booleanOperation(Operators.IN, this,
                 ExpressionFactory.stringLiteralExpressWithSeparator(right, ","));
     }
