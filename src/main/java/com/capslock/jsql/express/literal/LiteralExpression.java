@@ -1,11 +1,11 @@
 package com.capslock.jsql.express.literal;
 
-import com.capslock.jsql.express.booleanExpress.BooleanExpress;
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.ExpressionFactory;
-import com.capslock.jsql.express.query.select.order.OrderExpress;
+import com.capslock.jsql.express.booleanExpress.BooleanExpress;
 import com.capslock.jsql.express.operator.Operators;
 import com.capslock.jsql.express.operator.Order;
+import com.capslock.jsql.express.query.select.order.OrderExpress;
 import com.capslock.jsql.type.Visitor;
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
@@ -25,7 +25,6 @@ public abstract class LiteralExpression<T extends Comparable> implements Express
     public LiteralExpression(final T value) {
         this.value = value;
     }
-
 
     public T getLiteral() {
         return value;
@@ -51,7 +50,7 @@ public abstract class LiteralExpression<T extends Comparable> implements Express
         return eq(StringLiteral.create(right));
     }
 
-    public <T extends Number> BooleanExpress eq(final T right) {
+    public <N extends Number> BooleanExpress eq(final N right) {
         return eq(right.toString());
     }
 
@@ -63,7 +62,7 @@ public abstract class LiteralExpression<T extends Comparable> implements Express
         return le(StringLiteral.create(right));
     }
 
-    public <T extends Number> BooleanExpress le(final T right) {
+    public <N extends Number> BooleanExpress le(final N right) {
         return le(right.toString());
     }
 
@@ -75,13 +74,13 @@ public abstract class LiteralExpression<T extends Comparable> implements Express
         return gt(StringLiteral.create(right));
     }
 
-    public <T extends Number> BooleanExpress gt(final T right) {
+    public <N extends Number> BooleanExpress gt(final N right) {
         return gt(right.toString());
     }
 
-    public <T extends Number> BooleanExpress in(final T... right) {
+    public <N extends Number> BooleanExpress in(final N... right) {
         final List<String> numberList = new ArrayList<>();
-        for (final T value : right) {
+        for (final N value : right) {
             numberList.add(value.toString());
         }
         return in(numberList);
