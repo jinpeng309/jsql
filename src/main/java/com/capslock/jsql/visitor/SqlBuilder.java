@@ -91,8 +91,8 @@ public class SqlBuilder implements Visitor {
         flush();
         append("FROM ");
 
-        for (final Express tabaleExpress : fromExpress.getFromTableExpressList()) {
-            tabaleExpress.accept(this);
+        for (final Express tableExpress : fromExpress.getFromTableExpressList()) {
+            tableExpress.accept(this);
             append(" , ");
         }
 
