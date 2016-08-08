@@ -1,6 +1,6 @@
 package com.capslock.jsql.express;
 
-import com.capslock.jsql.type.Visitable;
+import com.capslock.jsql.visitor.Visitable;
 
 /**
  * Created by capslock.

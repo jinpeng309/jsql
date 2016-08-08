@@ -9,10 +9,10 @@ import com.google.common.collect.Sets;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.capslock.jsql.express.command.Command.delete;
-import static com.capslock.jsql.express.command.Command.insertInto;
-import static com.capslock.jsql.express.command.Command.select;
-import static com.capslock.jsql.express.command.Command.update;
+import static com.capslock.jsql.command.Command.delete;
+import static com.capslock.jsql.command.Command.insertInto;
+import static com.capslock.jsql.command.Command.select;
+import static com.capslock.jsql.command.Command.update;
 
 /**
  * Created by capslock.

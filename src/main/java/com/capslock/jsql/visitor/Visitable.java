@@ -1,4 +1,4 @@
-package com.capslock.jsql.type;
+package com.capslock.jsql.visitor;
 
 /**
  * Created by capslock.

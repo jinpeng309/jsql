@@ -1,8 +1,8 @@
-package com.capslock.jsql.express.command.dml.delete;
+package com.capslock.jsql.command.dml.delete;
 
-import com.capslock.jsql.express.command.Command;
-import com.capslock.jsql.express.command.SqlContext;
-import com.capslock.jsql.type.Visitor;
+import com.capslock.jsql.command.Command;
+import com.capslock.jsql.command.SqlContext;
+import com.capslock.jsql.visitor.Visitor;
 
 /**
  * Created by capslock.

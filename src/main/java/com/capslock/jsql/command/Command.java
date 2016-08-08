@@ -1,12 +1,12 @@
-package com.capslock.jsql.express.command;
+package com.capslock.jsql.command;
 
 import com.capslock.jsql.express.Express;
-import com.capslock.jsql.express.command.dml.delete.DeleteExpress;
-import com.capslock.jsql.express.command.dml.insert.InsertExpress;
-import com.capslock.jsql.express.command.dml.select.FromExpress;
-import com.capslock.jsql.express.command.dml.select.SelectExpress;
-import com.capslock.jsql.express.command.dml.update.UpdateExpress;
-import com.capslock.jsql.type.SqlBuilder;
+import com.capslock.jsql.command.dml.delete.DeleteExpress;
+import com.capslock.jsql.command.dml.insert.InsertExpress;
+import com.capslock.jsql.command.dml.select.FromExpress;
+import com.capslock.jsql.command.dml.select.SelectExpress;
+import com.capslock.jsql.command.dml.update.UpdateExpress;
+import com.capslock.jsql.visitor.SqlBuilder;
 
 /**
  * Created by capslock.

@@ -1,10 +1,10 @@
-package com.capslock.jsql.express.command.dml.update;
+package com.capslock.jsql.command.dml.update;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.literal.StringLiteral;
-import com.capslock.jsql.express.command.Command;
-import com.capslock.jsql.express.command.SqlContext;
-import com.capslock.jsql.type.Visitor;
+import com.capslock.jsql.command.Command;
+import com.capslock.jsql.command.SqlContext;
+import com.capslock.jsql.visitor.Visitor;
 
 /**
  * Created by capslock.

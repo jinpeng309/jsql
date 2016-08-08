@@ -2,7 +2,7 @@ package com.capslock.jsql.express.operation;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.operator.Operator;
-import com.capslock.jsql.type.Visitor;
+import com.capslock.jsql.visitor.Visitor;
 
 import java.util.List;
 

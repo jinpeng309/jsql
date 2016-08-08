@@ -1,7 +1,7 @@
-package com.capslock.jsql.express.command;
+package com.capslock.jsql.command;
 
-import com.capslock.jsql.type.SqlBuilder;
-import com.capslock.jsql.type.Visitor;
+import com.capslock.jsql.visitor.SqlBuilder;
+import com.capslock.jsql.visitor.Visitor;
 
 /**
  * Created by capslock.

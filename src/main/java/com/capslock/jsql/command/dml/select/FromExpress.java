@@ -1,14 +1,14 @@
-package com.capslock.jsql.express.command.dml.select;
+package com.capslock.jsql.command.dml.select;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.booleanExpress.Predicate;
 import com.capslock.jsql.express.booleanExpress.PredicateOperation;
 import com.capslock.jsql.express.operator.Operators;
-import com.capslock.jsql.express.command.Command;
-import com.capslock.jsql.express.command.SqlContext;
-import com.capslock.jsql.express.command.dml.select.order.OrderByExpress;
-import com.capslock.jsql.express.command.dml.select.order.OrderExpress;
-import com.capslock.jsql.type.Visitor;
+import com.capslock.jsql.command.Command;
+import com.capslock.jsql.command.SqlContext;
+import com.capslock.jsql.command.dml.select.order.OrderByExpress;
+import com.capslock.jsql.command.dml.select.order.OrderExpress;
+import com.capslock.jsql.visitor.Visitor;
 import com.google.common.collect.ImmutableList;
 
 import java.util.List;

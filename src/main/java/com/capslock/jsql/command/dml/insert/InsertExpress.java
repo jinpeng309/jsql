@@ -1,10 +1,10 @@
-package com.capslock.jsql.express.command.dml.insert;
+package com.capslock.jsql.command.dml.insert;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.literal.StringLiteral;
-import com.capslock.jsql.express.command.Command;
-import com.capslock.jsql.express.command.SqlContext;
-import com.capslock.jsql.type.Visitor;
+import com.capslock.jsql.command.Command;
+import com.capslock.jsql.command.SqlContext;
+import com.capslock.jsql.visitor.Visitor;
 import com.google.common.collect.ImmutableList;
 
 /**

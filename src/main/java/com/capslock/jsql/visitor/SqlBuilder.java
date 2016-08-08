@@ -1,4 +1,4 @@
-package com.capslock.jsql.type;
+package com.capslock.jsql.visitor;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.literal.LiteralExpression;
@@ -7,20 +7,20 @@ import com.capslock.jsql.express.operation.Operation;
 import com.capslock.jsql.express.operator.Operator;
 import com.capslock.jsql.express.operator.Operators;
 import com.capslock.jsql.express.operator.Order;
-import com.capslock.jsql.express.command.dml.delete.DeleteExpress;
-import com.capslock.jsql.express.command.dml.insert.ColumnsExpress;
-import com.capslock.jsql.express.command.dml.insert.InsertExpress;
-import com.capslock.jsql.express.command.dml.insert.SelectValuesExpress;
-import com.capslock.jsql.express.command.dml.insert.ValuesExpress;
-import com.capslock.jsql.express.command.dml.select.FromExpress;
-import com.capslock.jsql.express.command.dml.select.LimitExpress;
-import com.capslock.jsql.express.command.dml.select.SelectExpress;
-import com.capslock.jsql.express.command.dml.select.WhereExpress;
-import com.capslock.jsql.express.command.dml.select.order.OrderByExpress;
-import com.capslock.jsql.express.command.dml.select.order.OrderExpress;
-import com.capslock.jsql.express.command.dml.update.FollowSetExpress;
-import com.capslock.jsql.express.command.dml.update.SetExpress;
-import com.capslock.jsql.express.command.dml.update.UpdateExpress;
+import com.capslock.jsql.command.dml.delete.DeleteExpress;
+import com.capslock.jsql.command.dml.insert.ColumnsExpress;
+import com.capslock.jsql.command.dml.insert.InsertExpress;
+import com.capslock.jsql.command.dml.insert.SelectValuesExpress;
+import com.capslock.jsql.command.dml.insert.ValuesExpress;
+import com.capslock.jsql.command.dml.select.FromExpress;
+import com.capslock.jsql.command.dml.select.LimitExpress;
+import com.capslock.jsql.command.dml.select.SelectExpress;
+import com.capslock.jsql.command.dml.select.WhereExpress;
+import com.capslock.jsql.command.dml.select.order.OrderByExpress;
+import com.capslock.jsql.command.dml.select.order.OrderExpress;
+import com.capslock.jsql.command.dml.update.FollowSetExpress;
+import com.capslock.jsql.command.dml.update.SetExpress;
+import com.capslock.jsql.command.dml.update.UpdateExpress;
 
 import java.util.List;
 

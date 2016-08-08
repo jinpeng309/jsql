@@ -1,8 +1,8 @@
-package com.capslock.jsql.express.command.dml.select.order;
+package com.capslock.jsql.command.dml.select.order;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.operator.Order;
-import com.capslock.jsql.type.Visitor;
+import com.capslock.jsql.visitor.Visitor;
 
 /**
  * Created by capslock.
