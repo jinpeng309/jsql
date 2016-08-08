@@ -1,7 +1,7 @@
 package com.capslock.jsql.express.literal;
 
 import com.capslock.jsql.express.operator.Order;
-import com.capslock.jsql.express.query.select.order.OrderExpress;
+import com.capslock.jsql.express.command.dml.select.order.OrderExpress;
 
 /**
  * Created by capslock.

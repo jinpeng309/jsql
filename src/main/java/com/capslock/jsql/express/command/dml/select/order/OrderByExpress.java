@@ -1,15 +1,15 @@
-package com.capslock.jsql.express.query.select.order;
+package com.capslock.jsql.express.command.dml.select.order;
 
 import com.capslock.jsql.express.Express;
-import com.capslock.jsql.express.query.select.LimitExpress;
-import com.capslock.jsql.express.query.Query;
-import com.capslock.jsql.express.query.SqlContext;
+import com.capslock.jsql.express.command.dml.select.LimitExpress;
+import com.capslock.jsql.express.command.Command;
+import com.capslock.jsql.express.command.SqlContext;
 import com.capslock.jsql.type.Visitor;
 
 /**
  * Created by capslock.
  */
-public class OrderByExpress extends Query implements Express {
+public class OrderByExpress extends Command implements Express {
     private final OrderExpress orderExpress;
 
     public OrderByExpress(final SqlContext sqlContext, OrderExpress orderExpress) {

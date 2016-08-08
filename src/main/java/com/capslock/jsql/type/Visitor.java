@@ -2,20 +2,20 @@ package com.capslock.jsql.type;
 
 import com.capslock.jsql.express.literal.LiteralExpression;
 import com.capslock.jsql.express.operation.Operation;
-import com.capslock.jsql.express.query.delete.DeleteExpress;
-import com.capslock.jsql.express.query.insert.ColumnsExpress;
-import com.capslock.jsql.express.query.insert.InsertExpress;
-import com.capslock.jsql.express.query.insert.SelectValuesExpress;
-import com.capslock.jsql.express.query.insert.ValuesExpress;
-import com.capslock.jsql.express.query.select.FromExpress;
-import com.capslock.jsql.express.query.select.LimitExpress;
-import com.capslock.jsql.express.query.select.SelectExpress;
-import com.capslock.jsql.express.query.select.WhereExpress;
-import com.capslock.jsql.express.query.select.order.OrderByExpress;
-import com.capslock.jsql.express.query.select.order.OrderExpress;
-import com.capslock.jsql.express.query.update.FollowSetExpress;
-import com.capslock.jsql.express.query.update.SetExpress;
-import com.capslock.jsql.express.query.update.UpdateExpress;
+import com.capslock.jsql.express.command.dml.delete.DeleteExpress;
+import com.capslock.jsql.express.command.dml.insert.ColumnsExpress;
+import com.capslock.jsql.express.command.dml.insert.InsertExpress;
+import com.capslock.jsql.express.command.dml.insert.SelectValuesExpress;
+import com.capslock.jsql.express.command.dml.insert.ValuesExpress;
+import com.capslock.jsql.express.command.dml.select.FromExpress;
+import com.capslock.jsql.express.command.dml.select.LimitExpress;
+import com.capslock.jsql.express.command.dml.select.SelectExpress;
+import com.capslock.jsql.express.command.dml.select.WhereExpress;
+import com.capslock.jsql.express.command.dml.select.order.OrderByExpress;
+import com.capslock.jsql.express.command.dml.select.order.OrderExpress;
+import com.capslock.jsql.express.command.dml.update.FollowSetExpress;
+import com.capslock.jsql.express.command.dml.update.SetExpress;
+import com.capslock.jsql.express.command.dml.update.UpdateExpress;
 
 /**
  * Created by capslock.

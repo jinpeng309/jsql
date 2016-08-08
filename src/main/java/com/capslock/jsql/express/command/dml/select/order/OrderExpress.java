@@ -1,4 +1,4 @@
-package com.capslock.jsql.express.query.select.order;
+package com.capslock.jsql.express.command.dml.select.order;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.operator.Order;

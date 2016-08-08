@@ -1,21 +1,21 @@
-package com.capslock.jsql.express.query.update;
+package com.capslock.jsql.express.command.dml.update;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.booleanExpress.Predicate;
 import com.capslock.jsql.express.literal.StringLiteral;
-import com.capslock.jsql.express.query.Query;
-import com.capslock.jsql.express.query.SqlContext;
-import com.capslock.jsql.express.query.select.WhereExpress;
+import com.capslock.jsql.express.command.Command;
+import com.capslock.jsql.express.command.SqlContext;
+import com.capslock.jsql.express.command.dml.select.WhereExpress;
 import com.capslock.jsql.type.Visitor;
 
 /**
  * Created by capslock.
  */
-public class FollowSetExpress extends Query {
+public class SetExpress extends Command {
     private final Express column;
     private final Express value;
 
-    public FollowSetExpress(final SqlContext sqlContext, final Express column, final Express value) {
+    public SetExpress(final SqlContext sqlContext, final Express column, final Express value) {
         super(sqlContext);
         this.column = column;
         this.value = value;
@@ -23,6 +23,14 @@ public class FollowSetExpress extends Query {
 
     public WhereExpress where(final Predicate condition) {
         return new WhereExpress(this, condition);
+    }
+
+    public Express getColumn() {
+        return column;
+    }
+
+    public Express getValue() {
+        return value;
     }
 
     public FollowSetExpress set(final Express column, final String value) {
@@ -36,13 +44,5 @@ public class FollowSetExpress extends Query {
     @Override
     public void accept(final Visitor visitor) {
         visitor.visit(this);
-    }
-
-    public Express getColumn() {
-        return column;
-    }
-
-    public Express getValue() {
-        return value;
     }
 }

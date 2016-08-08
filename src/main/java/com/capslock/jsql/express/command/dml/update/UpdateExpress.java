@@ -1,15 +1,15 @@
-package com.capslock.jsql.express.query.update;
+package com.capslock.jsql.express.command.dml.update;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.literal.StringLiteral;
-import com.capslock.jsql.express.query.Query;
-import com.capslock.jsql.express.query.SqlContext;
+import com.capslock.jsql.express.command.Command;
+import com.capslock.jsql.express.command.SqlContext;
 import com.capslock.jsql.type.Visitor;
 
 /**
  * Created by capslock.
  */
-public class UpdateExpress extends Query {
+public class UpdateExpress extends Command {
     private final Express table;
 
     public UpdateExpress(final SqlContext sqlContext, final Express table) {

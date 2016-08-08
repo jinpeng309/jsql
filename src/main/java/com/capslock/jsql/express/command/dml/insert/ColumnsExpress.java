@@ -1,9 +1,9 @@
-package com.capslock.jsql.express.query.insert;
+package com.capslock.jsql.express.command.dml.insert;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.literal.StringLiteral;
-import com.capslock.jsql.express.query.Query;
-import com.capslock.jsql.express.query.SqlContext;
+import com.capslock.jsql.express.command.Command;
+import com.capslock.jsql.express.command.SqlContext;
 import com.capslock.jsql.type.Visitor;
 import com.google.common.collect.ImmutableList;
 
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by capslock.
  */
-public class ColumnsExpress extends Query implements Express {
+public class ColumnsExpress extends Command implements Express {
     private final List<StringLiteral> columns;
 
     public ColumnsExpress(final SqlContext sqlContext, List<StringLiteral> columns) {
@@ -26,6 +26,10 @@ public class ColumnsExpress extends Query implements Express {
 
     public ValuesExpress values(final List<Express>... valuesList) {
         return new ValuesExpress(this, ImmutableList.copyOf(valuesList));
+    }
+
+    public ValuesExpress values(final List<List<Express>> valuesList) {
+        return new ValuesExpress(this, valuesList);
     }
 
     public SelectValuesExpress select(final String selectClause) {

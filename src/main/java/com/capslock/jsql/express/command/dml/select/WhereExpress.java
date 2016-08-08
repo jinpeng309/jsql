@@ -1,16 +1,16 @@
-package com.capslock.jsql.express.query.select;
+package com.capslock.jsql.express.command.dml.select;
 
 import com.capslock.jsql.express.Express;
-import com.capslock.jsql.express.query.Query;
-import com.capslock.jsql.express.query.SqlContext;
-import com.capslock.jsql.express.query.select.order.OrderByExpress;
-import com.capslock.jsql.express.query.select.order.OrderExpress;
+import com.capslock.jsql.express.command.Command;
+import com.capslock.jsql.express.command.SqlContext;
+import com.capslock.jsql.express.command.dml.select.order.OrderByExpress;
+import com.capslock.jsql.express.command.dml.select.order.OrderExpress;
 import com.capslock.jsql.type.Visitor;
 
 /**
  * Created by capslock.
  */
-public class WhereExpress extends Query implements Express {
+public class WhereExpress extends Command implements Express {
     private final Express<?> conditionExpress;
 
     public WhereExpress(final SqlContext sqlContext, final Express<?> condition) {

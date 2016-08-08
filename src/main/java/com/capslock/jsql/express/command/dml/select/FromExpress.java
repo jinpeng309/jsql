@@ -1,13 +1,13 @@
-package com.capslock.jsql.express.query.select;
+package com.capslock.jsql.express.command.dml.select;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.booleanExpress.Predicate;
 import com.capslock.jsql.express.booleanExpress.PredicateOperation;
 import com.capslock.jsql.express.operator.Operators;
-import com.capslock.jsql.express.query.Query;
-import com.capslock.jsql.express.query.SqlContext;
-import com.capslock.jsql.express.query.select.order.OrderByExpress;
-import com.capslock.jsql.express.query.select.order.OrderExpress;
+import com.capslock.jsql.express.command.Command;
+import com.capslock.jsql.express.command.SqlContext;
+import com.capslock.jsql.express.command.dml.select.order.OrderByExpress;
+import com.capslock.jsql.express.command.dml.select.order.OrderExpress;
 import com.capslock.jsql.type.Visitor;
 import com.google.common.collect.ImmutableList;
 
@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by capslock.
  */
-public class FromExpress extends Query implements Express {
+public class FromExpress extends Command implements Express {
     private final List<Express<?>> tableExpressList;
 
     public FromExpress(final SqlContext sqlContext, final Express<?> table) {

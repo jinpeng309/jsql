@@ -1,45 +1,45 @@
-package com.capslock.jsql.express.query;
+package com.capslock.jsql.express.command;
 
 import com.capslock.jsql.express.Express;
-import com.capslock.jsql.express.query.delete.DeleteExpress;
-import com.capslock.jsql.express.query.insert.InsertExpress;
-import com.capslock.jsql.express.query.select.FromExpress;
-import com.capslock.jsql.express.query.select.SelectExpress;
-import com.capslock.jsql.express.query.update.UpdateExpress;
+import com.capslock.jsql.express.command.dml.delete.DeleteExpress;
+import com.capslock.jsql.express.command.dml.insert.InsertExpress;
+import com.capslock.jsql.express.command.dml.select.FromExpress;
+import com.capslock.jsql.express.command.dml.select.SelectExpress;
+import com.capslock.jsql.express.command.dml.update.UpdateExpress;
 import com.capslock.jsql.type.SqlBuilder;
 
 /**
  * Created by capslock.
  */
-public abstract class Query implements SqlContext {
+public abstract class Command implements SqlContext {
     protected final SqlContext sqlContext;
 
-    public Query(final SqlContext sqlContext) {
+    public Command(final SqlContext sqlContext) {
         this.sqlContext = sqlContext;
     }
 
     public static SelectExpress select(final Express<?>... args) {
-        return new SelectExpress(new EmptyQuery(), args);
+        return new SelectExpress(new EmptyCommand(), args);
     }
 
     public static InsertExpress insertInto(final Express<?> tableName) {
-        return new InsertExpress(new EmptyQuery(), tableName, "INSERT INTO");
+        return new InsertExpress(new EmptyCommand(), tableName, "INSERT INTO");
     }
 
     public static InsertExpress insertOrReplaceInto(final Express<?> tableName) {
-        return new InsertExpress(new EmptyQuery(), tableName, "INSERT OR REPLACE INTO");
+        return new InsertExpress(new EmptyCommand(), tableName, "INSERT OR REPLACE INTO");
     }
 
     public static InsertExpress insertIgnoreInto(final Express<?> tableName) {
-        return new InsertExpress(new EmptyQuery(), tableName, "INSERT IGNORE INTO");
+        return new InsertExpress(new EmptyCommand(), tableName, "INSERT IGNORE INTO");
     }
 
     public static FromExpress delete(final Express<?> tableName) {
-        return new FromExpress(new DeleteExpress(new EmptyQuery()), tableName);
+        return new FromExpress(new DeleteExpress(new EmptyCommand()), tableName);
     }
 
     public static UpdateExpress update(final Express<?> tableName){
-        return new UpdateExpress(new EmptyQuery(), tableName);
+        return new UpdateExpress(new EmptyCommand(), tableName);
     }
 
     @Override

@@ -23,4 +23,8 @@ public class StringLiteral extends LiteralExpression<String> {
     public static <T extends Number> StringLiteral create(final T value) {
         return create(value.toString());
     }
+
+    public static StringLiteral create(final Boolean value) {
+        return create(value ? 1 : 0);
+    }
 }

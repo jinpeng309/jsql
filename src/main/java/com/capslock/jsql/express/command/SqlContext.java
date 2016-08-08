@@ -1,4 +1,4 @@
-package com.capslock.jsql.express.query;
+package com.capslock.jsql.express.command;
 
 import com.capslock.jsql.type.SqlBuilder;
 import com.capslock.jsql.express.Express;

@@ -1,15 +1,15 @@
-package com.capslock.jsql.express.query.insert;
+package com.capslock.jsql.express.command.dml.insert;
 
 import com.capslock.jsql.express.Express;
 import com.capslock.jsql.express.literal.StringLiteral;
-import com.capslock.jsql.express.query.Query;
-import com.capslock.jsql.express.query.SqlContext;
+import com.capslock.jsql.express.command.Command;
+import com.capslock.jsql.express.command.SqlContext;
 import com.capslock.jsql.type.Visitor;
 
 /**
  * Created by capslock.
  */
-public class SelectValuesExpress extends Query implements Express {
+public class SelectValuesExpress extends Command implements Express {
     private final StringLiteral selectClause;
 
     public SelectValuesExpress(final SqlContext sqlContext, final StringLiteral selectExpress) {

@@ -1,15 +1,15 @@
-package com.capslock.jsql.express.query.select;
+package com.capslock.jsql.express.command.dml.select;
 
 import com.capslock.jsql.express.Express;
-import com.capslock.jsql.express.query.Query;
-import com.capslock.jsql.express.query.SqlContext;
+import com.capslock.jsql.express.command.Command;
+import com.capslock.jsql.express.command.SqlContext;
 import com.capslock.jsql.type.Visitor;
 import com.google.common.collect.ImmutableList;
 
 /**
  * Created by capslock.
  */
-public class SelectExpress extends Query {
+public class SelectExpress extends Command {
     private final ImmutableList<Express<?>> columns;
 
     public SelectExpress(final SqlContext sqlContext, final Express<?>... columns) {

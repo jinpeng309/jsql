@@ -5,7 +5,7 @@ import com.capslock.jsql.express.ExpressionFactory;
 import com.capslock.jsql.express.booleanExpress.BooleanExpress;
 import com.capslock.jsql.express.operator.Operators;
 import com.capslock.jsql.express.operator.Order;
-import com.capslock.jsql.express.query.select.order.OrderExpress;
+import com.capslock.jsql.express.command.dml.select.order.OrderExpress;
 import com.capslock.jsql.type.Visitor;
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
